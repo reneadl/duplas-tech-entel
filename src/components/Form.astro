@@ -1,4 +1,10 @@
 ---
+interface Props {
+  perfil?: "senior" | "joven" | null;
+}
+
+const { perfil = null } = Astro.props;
+
 const regiones = [
   "Región Metropolitana",
   "Valparaíso",
@@ -30,6 +36,14 @@ const generos = [
 
 const inputClass = "w-full px-3 py-2.5 border border-border rounded-md text-sm bg-white focus:outline-none focus:border-entel focus:ring-1 focus:ring-entel transition-colors";
 const labelClass = "block text-sm font-semibold text-ink mb-1.5";
+
+const perfilData = {
+  senior: { nombre: "Profesional Senior", edad: "55 a 70 años", color: "bg-entel" },
+  joven: { nombre: "Joven Colaborador", edad: "18 a 30 años", color: "bg-orange" },
+};
+
+const showSelector = perfil === null;
+const initial = perfil ? perfilData[perfil] : null;
 ---
 
 <section id="postulacion" class="bg-soft border-b border-border scroll-mt-16">
@@ -41,7 +55,9 @@ const labelClass = "block text-sm font-semibold text-ink mb-1.5";
           Da el primer paso
         </h2>
         <p class="text-base text-muted leading-relaxed mb-6">
-          Selecciona tu perfil y completa el formulario. Una vez cerrado el proceso, te contactaremos con los resultados de la selección.
+          {showSelector
+            ? "Selecciona tu perfil y completa el formulario. Una vez cerrado el proceso, te contactaremos con los resultados de la selección."
+            : "Completa el formulario. Una vez cerrado el proceso, te contactaremos con los resultados de la selección."}
         </p>
 
         <div class="border border-border rounded-md divide-y divide-border bg-white">
@@ -61,68 +77,80 @@ const labelClass = "block text-sm font-semibold text-ink mb-1.5";
       </div>
 
       <div class="lg:col-span-3">
-        <!-- Paso 1: selector de perfil -->
-        <div id="perfilSelector" class="bg-white border border-border rounded-md p-6 lg:p-10">
-          <div class="text-center mb-8">
-            <h3 class="font-bold text-xl lg:text-2xl text-ink mb-2">¿A qué perfil postulas?</h3>
-            <p class="text-sm text-muted">Selecciona una opción para continuar</p>
+        {showSelector && (
+          <div id="perfilSelector" class="bg-white border border-border rounded-md p-6 lg:p-10">
+            <div class="text-center mb-8">
+              <h3 class="font-bold text-xl lg:text-2xl text-ink mb-2">¿A qué perfil postulas?</h3>
+              <p class="text-sm text-muted">Selecciona una opción para continuar</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <button
+                type="button"
+                data-perfil="senior"
+                class="group bg-entel hover:bg-entel-deep text-white p-6 lg:p-8 rounded-md text-left transition-colors duration-150"
+              >
+                <div class="text-xs font-semibold uppercase tracking-wide text-white/70 mb-3">Profesional</div>
+                <div class="font-bold text-2xl lg:text-3xl mb-1">Senior</div>
+                <div class="text-sm text-white/85 mb-6">55 a 70 años</div>
+                <div class="flex items-center gap-2 text-sm font-semibold">
+                  Postular como Senior
+                  <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                data-perfil="joven"
+                class="group bg-orange hover:bg-orange-hover text-white p-6 lg:p-8 rounded-md text-left transition-colors duration-150"
+              >
+                <div class="text-xs font-semibold uppercase tracking-wide text-white/80 mb-3">Joven</div>
+                <div class="font-bold text-2xl lg:text-3xl mb-1">Colaborador</div>
+                <div class="text-sm text-white/90 mb-6">18 a 30 años</div>
+                <div class="flex items-center gap-2 text-sm font-semibold">
+                  Postular como Joven
+                  <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </div>
+              </button>
+            </div>
           </div>
+        )}
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <button
-              type="button"
-              data-perfil="senior"
-              class="group bg-entel hover:bg-entel-deep text-white p-6 lg:p-8 rounded-md text-left transition-colors duration-150"
-            >
-              <div class="text-xs font-semibold uppercase tracking-wide text-white/70 mb-3">Profesional</div>
-              <div class="font-bold text-2xl lg:text-3xl mb-1">Senior</div>
-              <div class="text-sm text-white/85 mb-6">55 a 70 años</div>
-              <div class="flex items-center gap-2 text-sm font-semibold">
-                Postular como Senior
-                <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                </svg>
-              </div>
-            </button>
-
-            <button
-              type="button"
-              data-perfil="joven"
-              class="group bg-orange hover:bg-orange-hover text-white p-6 lg:p-8 rounded-md text-left transition-colors duration-150"
-            >
-              <div class="text-xs font-semibold uppercase tracking-wide text-white/80 mb-3">Joven</div>
-              <div class="font-bold text-2xl lg:text-3xl mb-1">Colaborador</div>
-              <div class="text-sm text-white/90 mb-6">18 a 30 años</div>
-              <div class="flex items-center gap-2 text-sm font-semibold">
-                Postular como Joven
-                <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                </svg>
-              </div>
-            </button>
-          </div>
-        </div>
-
-        <!-- Paso 2: formulario (oculto inicialmente) -->
         <form
           id="postulacionForm"
           action="/success"
           method="post"
-          class="hidden bg-white border border-border rounded-md p-6 lg:p-8"
+          class:list={["bg-white border border-border rounded-md p-6 lg:p-8", showSelector && "hidden"]}
         >
-          <input type="hidden" name="perfil" id="perfilHidden" />
+          <input type="hidden" name="perfil" id="perfilHidden" value={perfil ?? ""} />
 
           <div class="flex items-center justify-between gap-4 mb-6 pb-6 border-b border-border">
             <div class="flex items-center gap-3">
-              <span id="perfilBadge" class="text-xs font-semibold uppercase tracking-wide text-white px-3 py-1.5 rounded-full"></span>
-              <span id="perfilLabel" class="text-sm font-semibold text-ink"></span>
+              <span
+                id="perfilBadge"
+                class:list={[
+                  "text-xs font-semibold uppercase tracking-wide text-white px-3 py-1.5 rounded-full",
+                  initial?.color ?? "",
+                ]}
+              >
+                {initial?.nombre ?? ""}
+              </span>
+              <span id="perfilLabel" class="text-sm font-semibold text-ink">
+                {initial?.edad ?? ""}
+              </span>
             </div>
-            <button type="button" id="cambiarPerfil" class="text-sm font-semibold text-muted hover:text-ink transition-colors flex items-center gap-1">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-              </svg>
-              Cambiar
-            </button>
+            {showSelector && (
+              <button type="button" id="cambiarPerfil" class="text-sm font-semibold text-muted hover:text-ink transition-colors flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                </svg>
+                Cambiar
+              </button>
+            )}
           </div>
 
           <div class="flex flex-col gap-5">
@@ -238,39 +266,41 @@ const labelClass = "block text-sm font-semibold text-ink mb-1.5";
   </div>
 </section>
 
-<script>
-  const selector = document.getElementById("perfilSelector")!;
-  const form = document.getElementById("postulacionForm")!;
-  const hidden = document.getElementById("perfilHidden") as HTMLInputElement;
-  const badge = document.getElementById("perfilBadge")!;
-  const label = document.getElementById("perfilLabel")!;
-  const cambiar = document.getElementById("cambiarPerfil")!;
+{showSelector && (
+  <script>
+    const selector = document.getElementById("perfilSelector")!;
+    const form = document.getElementById("postulacionForm")!;
+    const hidden = document.getElementById("perfilHidden") as HTMLInputElement;
+    const badge = document.getElementById("perfilBadge")!;
+    const label = document.getElementById("perfilLabel")!;
+    const cambiar = document.getElementById("cambiarPerfil")!;
 
-  const perfiles = {
-    senior: { nombre: "Profesional Senior", edad: "55 a 70 años", color: "bg-entel" },
-    joven: { nombre: "Joven Colaborador", edad: "18 a 30 años", color: "bg-orange" },
-  } as const;
+    const perfiles = {
+      senior: { nombre: "Profesional Senior", edad: "55 a 70 años", color: "bg-entel" },
+      joven: { nombre: "Joven Colaborador", edad: "18 a 30 años", color: "bg-orange" },
+    } as const;
 
-  document.querySelectorAll<HTMLButtonElement>("[data-perfil]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const perfil = btn.dataset.perfil as keyof typeof perfiles;
-      const data = perfiles[perfil];
+    document.querySelectorAll<HTMLButtonElement>("[data-perfil]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const perfil = btn.dataset.perfil as keyof typeof perfiles;
+        const data = perfiles[perfil];
 
-      hidden.value = perfil;
-      badge.textContent = data.nombre;
-      badge.className = `text-xs font-semibold uppercase tracking-wide text-white px-3 py-1.5 rounded-full ${data.color}`;
-      label.textContent = data.edad;
+        hidden.value = perfil;
+        badge.textContent = data.nombre;
+        badge.className = `text-xs font-semibold uppercase tracking-wide text-white px-3 py-1.5 rounded-full ${data.color}`;
+        label.textContent = data.edad;
 
-      selector.classList.add("hidden");
-      form.classList.remove("hidden");
-      form.scrollIntoView({ behavior: "smooth", block: "start" });
+        selector.classList.add("hidden");
+        form.classList.remove("hidden");
+        form.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
     });
-  });
 
-  cambiar.addEventListener("click", () => {
-    form.classList.add("hidden");
-    selector.classList.remove("hidden");
-    hidden.value = "";
-    selector.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-</script>
+    cambiar.addEventListener("click", () => {
+      form.classList.add("hidden");
+      selector.classList.remove("hidden");
+      hidden.value = "";
+      selector.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  </script>
+)}

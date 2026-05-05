@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import WhatIs from "../components/WhatIs.astro";
+import Program from "../components/Program.astro";
+import Webinars from "../components/Webinars.astro";
+import Timeline from "../components/Timeline.astro";
+import FAQ from "../components/FAQ.astro";
+import Form from "../components/Form.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Postulación Senior"
+  description="Postula al programa Duplas Intergeneracionales Tech como Profesional Senior (55 a 70 años). 100% gratuito, financiado por el Fondo 55+ Entel."
+>
+  <Nav />
+  <Hero variant="senior" />
+  <WhatIs />
+  <Program />
+  <Webinars />
+  <Timeline />
+  <FAQ />
+  <Form perfil="senior" />
+  <Footer />
+</Layout>
