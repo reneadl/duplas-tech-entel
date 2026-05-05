@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@import "tailwind-animations";
+
+@theme {
+  /* Paleta Entel + Desafío Latam — versión estándar */
+  --color-entel: #0033a0;          /* Azul corporativo Entel */
+  --color-entel-deep: #00205b;     /* Azul más oscuro */
+  --color-orange: #ff3d00;         /* Naranja Entel (CTA) */
+  --color-orange-hover: #d83000;   /* Hover */
+  --color-ink: #1a2332;            /* Texto principal */
+  --color-muted: #5a6675;          /* Texto secundario */
+  --color-border: #e5e7eb;         /* Bordes neutros */
+  --color-soft: #f5f7fa;           /* Fondo suave de sección */
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', 'Montserrat', system-ui, sans-serif;
+    background-color: #ffffff;
+    color: var(--color-ink);
+    overflow-x: hidden;
+  }
+}

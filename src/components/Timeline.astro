@@ -1,0 +1,38 @@
+---
+const hitos = [
+  { date: "18 May 2026", title: "Inicio de convocatoria", desc: "Postulaciones abiertas hasta el 31 de mayo." },
+  { date: "Jun – Jul 2026", title: "Etapa 1 · Bootcamp", desc: "8 webinars de Empleabilidad e IA, 100% online." },
+  { date: "Mediados de Jul 2026", title: "Selección y matching", desc: "Se forman las 60 Duplas Intergeneracionales." },
+  { date: "Jul – Sep 2026", title: "Etapa 2 · Vibecoding", desc: "Trabajo en duplas, prototipado y mentorías." },
+  { date: "Fines de Sep 2026", title: "Demo Day y certificación", desc: "Showcase Silver Tech con +20 empresas." },
+];
+---
+
+<section id="cronograma" class="bg-soft border-b border-border scroll-mt-16">
+  <div class="max-w-300 mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
+    <div class="max-w-3xl mb-10">
+      <div class="text-xs font-semibold uppercase tracking-wide text-orange mb-3">Cronograma</div>
+      <h2 class="font-bold text-2xl lg:text-3xl text-ink leading-tight mb-3">
+        Fechas clave 2026
+      </h2>
+      <p class="text-base text-muted leading-relaxed">
+        Calendario claro de mayo a septiembre. Reserva las fechas y acompáñanos en cada hito.
+      </p>
+    </div>
+
+    <ol class="border border-border rounded-md divide-y divide-border bg-white">
+      {
+        hitos.map(({ date, title, desc }, i) => (
+          <li class="flex items-start gap-4 p-5">
+            <span class="shrink-0 w-8 h-8 rounded-full bg-entel/10 text-entel text-sm font-semibold flex items-center justify-center">{i + 1}</span>
+            <div class="flex-1">
+              <div class="text-xs font-semibold uppercase tracking-wide text-orange mb-0.5">{date}</div>
+              <div class="font-semibold text-sm text-ink mb-0.5">{title}</div>
+              <div class="text-sm text-muted leading-relaxed">{desc}</div>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

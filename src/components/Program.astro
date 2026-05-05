@@ -1,0 +1,87 @@
+---
+---
+
+<section id="programa" class="bg-soft border-b border-border scroll-mt-16">
+  <div class="max-w-300 mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
+    <div class="max-w-3xl mb-10">
+      <div class="text-xs font-semibold uppercase tracking-wide text-orange mb-3">Estructura del programa</div>
+      <h2 class="font-bold text-2xl lg:text-3xl text-ink leading-tight mb-4">
+        Dos etapas progresivas
+      </h2>
+      <p class="text-base text-muted leading-relaxed">
+        Una formación masiva online seguida de un trabajo práctico en duplas con prototipado real con IA.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <!-- Etapa 1 -->
+      <div class="bg-white border border-border rounded-md p-6 lg:p-8">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-xs font-semibold uppercase tracking-wide text-white bg-entel rounded-md px-2 py-1">Etapa 1</span>
+          <span class="text-xs text-muted">100% online</span>
+        </div>
+        <h3 class="font-semibold text-xl text-ink mb-3">Bootcamp Masivo</h3>
+        <p class="text-sm text-muted leading-relaxed mb-5">
+          Ciclo de capacitación con <strong class="text-ink">8 webinars sincrónicos</strong> divididos en dos ciclos de aprendizaje progresivo.
+        </p>
+
+        <ul class="space-y-3 mb-5">
+          <li class="border-l-2 border-entel pl-3">
+            <div class="font-semibold text-sm text-ink mb-0.5">Ciclo 1 · Empleabilidad e IA</div>
+            <div class="text-sm text-muted leading-relaxed">Mercado laboral 2026, asistentes IA (ChatGPT/Gemini), búsqueda de empleo y networking digital.</div>
+          </li>
+          <li class="border-l-2 border-orange pl-3">
+            <div class="font-semibold text-sm text-ink mb-0.5">Ciclo 2 · Liderazgo y autonomía digital</div>
+            <div class="text-sm text-muted leading-relaxed">Herramientas colaborativas (Notion, Slack), LinkedIn con IA y gestión digital autónoma.</div>
+          </li>
+        </ul>
+
+        <div class="grid grid-cols-2 gap-4 pt-4 border-t border-border text-sm">
+          <div>
+            <div class="text-xs font-semibold uppercase tracking-wide text-muted mb-1">Aprobación</div>
+            <div class="text-ink">5 de 8 webinars + Desafío LinkedIn</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold uppercase tracking-wide text-muted mb-1">Beneficio</div>
+            <div class="text-ink">Certificado de Participación</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Etapa 2 -->
+      <div class="bg-white border border-border rounded-md p-6 lg:p-8">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-xs font-semibold uppercase tracking-wide text-white bg-orange rounded-md px-2 py-1">Etapa 2</span>
+          <span class="text-xs text-muted">Híbrido · Presencial RM y Valparaíso</span>
+        </div>
+        <h3 class="font-semibold text-xl text-ink mb-3">Trabajo en Duplas + Vibecoding</h3>
+        <p class="text-sm text-muted leading-relaxed mb-5">
+          Los <strong class="text-ink">60 Seniors más destacados</strong> son emparejados con 60 jóvenes formando Duplas Intergeneracionales, trabajando en células guiadas por un Mentor Líder.
+        </p>
+
+        <ul class="space-y-2 mb-5">
+          {
+            [
+              ["Eventos presenciales", "Kick-off, Matching Day y Work Sessions en RM y Valparaíso"],
+              ["Vibecoding", "Pasar del problema al prototipo con Cursor, Replit, v0 y Lovable"],
+              ["Entregables reales", "Diagnósticos para empresas y propuestas de mejora"],
+              ["Demo Day", "Showcase final ante +20 empresas y reclutadores"],
+            ].map(([title, desc]) => (
+              <li class="flex items-start gap-2 text-sm">
+                <span class="text-orange mt-0.5">→</span>
+                <div>
+                  <span class="font-semibold text-ink">{title}.</span> <span class="text-muted">{desc}</span>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="pt-4 border-t border-border text-sm">
+          <div class="text-xs font-semibold uppercase tracking-wide text-muted mb-1">Beneficio final</div>
+          <div class="text-ink leading-relaxed">Certificación Entel + Desafío Latam e ingreso a la <strong>Red Alumni Silver Tech</strong> con seguimiento laboral por 3 meses.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

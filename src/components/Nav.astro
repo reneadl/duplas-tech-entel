@@ -1,0 +1,117 @@
+---
+const links = [
+  ["#que-es", "El programa"],
+  ["#dirigido", "A quién"],
+  ["#programa", "Estructura"],
+  ["#cronograma", "Fechas"],
+  ["#faq", "FAQ"],
+];
+---
+
+<nav class="sticky top-0 z-50 bg-white border-b border-border">
+  <div class="max-w-300 mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
+    <a href="#inicio" class="flex items-center gap-4">
+      <img src="/logo-entel.webp" alt="Entel" class="h-10 w-auto" />
+      <span class="h-8 w-px bg-border"></span>
+      <img src="/logo-desafio-latam.png" alt="Desafío Latam" class="h-14 w-auto" />
+    </a>
+
+    <ul class="hidden lg:flex gap-7 list-none">
+      {
+        links.map(([href, label]) => (
+          <li>
+            <a
+              href={href}
+              class="text-sm font-medium text-muted no-underline transition-colors duration-150 hover:text-entel"
+            >
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <a
+      href="#postulacion"
+      class="hidden md:inline-block bg-orange text-white text-sm font-semibold px-5 py-2 rounded-md transition-colors duration-150 hover:bg-orange-hover"
+    >
+      Postular
+    </a>
+
+    <button
+      id="hamburger"
+      aria-label="Abrir menú"
+      class="lg:hidden flex flex-col justify-center gap-1 w-9 h-9 bg-transparent border-0 cursor-pointer p-1"
+    >
+      <span class="block w-5 h-0.5 bg-ink"></span>
+      <span class="block w-5 h-0.5 bg-ink"></span>
+      <span class="block w-5 h-0.5 bg-ink"></span>
+    </button>
+  </div>
+</nav>
+
+<div
+  id="menuOverlay"
+  class="fixed inset-0 z-200 bg-ink/40 invisible opacity-0 transition-[opacity,visibility] duration-200 data-[open]:visible data-[open]:opacity-100"
+>
+</div>
+
+<div
+  id="mobileMenu"
+  class="fixed top-0 right-0 z-300 w-[min(320px,85vw)] h-dvh bg-white px-6 pt-6 pb-12 flex flex-col translate-x-full transition-transform duration-300 shadow-xl data-[open]:translate-x-0"
+>
+  <button
+    id="menuClose"
+    aria-label="Cerrar menú"
+    class="self-end bg-transparent border-0 cursor-pointer text-xl text-muted p-1 mb-6"
+  >✕</button>
+
+  <ul class="list-none flex flex-col">
+    {
+      links.map(([href, label]) => (
+        <li>
+          <a
+            href={href}
+            class="block text-base font-medium text-ink no-underline py-3 border-b border-border"
+          >
+            {label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <a
+    href="#postulacion"
+    class="mt-6 bg-orange text-white text-center text-sm font-semibold px-6 py-3 rounded-md"
+  >
+    Postular ahora
+  </a>
+</div>
+
+<script>
+  const hamburger = document.getElementById("hamburger")!;
+  const mobileMenu = document.getElementById("mobileMenu")!;
+  const menuClose = document.getElementById("menuClose")!;
+  const menuOverlay = document.getElementById("menuOverlay")!;
+
+  const openMenu = () => {
+    mobileMenu.setAttribute("data-open", "");
+    menuOverlay.setAttribute("data-open", "");
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeMenu = () => {
+    mobileMenu.removeAttribute("data-open");
+    menuOverlay.removeAttribute("data-open");
+    document.body.style.overflow = "";
+  };
+
+  hamburger.addEventListener("click", openMenu);
+  menuClose.addEventListener("click", closeMenu);
+  menuOverlay.addEventListener("click", closeMenu);
+
+  document.querySelectorAll("#mobileMenu a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+</script>

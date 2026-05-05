@@ -1,0 +1,65 @@
+---
+const ciclo1 = [
+  { n: 1, title: "El Mercado Laboral 2026", subtitle: "Por qué tu experiencia vale más que nunca" },
+  { n: 2, title: "Inteligencia Artificial", subtitle: "Tu nuevo asistente profesional" },
+  { n: 3, title: "IA para tu búsqueda laboral", subtitle: "Estrategias prácticas potenciadas con IA" },
+  { n: 4, title: "Networking digital y empleabilidad", subtitle: "Cómo activar oportunidades con apoyo de IA" },
+];
+
+const ciclo2 = [
+  { n: 5, title: "Liderazgo con IA", subtitle: "Delega mejor, da feedback y toma decisiones con criterio" },
+  { n: 6, title: "Trabajo en equipos modernos", subtitle: "Herramientas de colaboración (Notion, Slack)" },
+  { n: 7, title: "LinkedIn: Marca personal silver", subtitle: "Usa IA para crear tu marca personal" },
+  { n: 8, title: "Autonomía digital en la práctica", subtitle: "Trámites, información y trabajo online con confianza" },
+];
+---
+
+<section class="bg-white border-b border-border scroll-mt-16">
+  <div class="max-w-300 mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
+    <div class="max-w-3xl mb-10">
+      <div class="text-xs font-semibold uppercase tracking-wide text-orange mb-3">Los 8 webinars</div>
+      <h2 class="font-bold text-2xl lg:text-3xl text-ink leading-tight mb-3">
+        Un recorrido progresivo y aplicado
+      </h2>
+      <p class="text-base text-muted leading-relaxed">
+        Sesiones grabadas con material descargable. Demostraciones en vivo y ejemplos aterrizados, sin tecnicismos complejos.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div>
+        <h3 class="font-semibold text-base text-entel mb-4">Ciclo 1 · Empleabilidad e IA</h3>
+        <ul class="bg-white border border-border rounded-md divide-y divide-border">
+          {
+            ciclo1.map(({ n, title, subtitle }) => (
+              <li class="flex items-start gap-4 p-4">
+                <span class="shrink-0 w-8 h-8 rounded-full bg-entel/10 text-entel text-sm font-semibold flex items-center justify-center">{n}</span>
+                <div>
+                  <div class="font-semibold text-sm text-ink mb-0.5">{title}</div>
+                  <div class="text-sm text-muted leading-relaxed">{subtitle}</div>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-base text-orange mb-4">Ciclo 2 · Liderazgo y autonomía digital</h3>
+        <ul class="bg-white border border-border rounded-md divide-y divide-border">
+          {
+            ciclo2.map(({ n, title, subtitle }) => (
+              <li class="flex items-start gap-4 p-4">
+                <span class="shrink-0 w-8 h-8 rounded-full bg-orange/10 text-orange text-sm font-semibold flex items-center justify-center">{n}</span>
+                <div>
+                  <div class="font-semibold text-sm text-ink mb-0.5">{title}</div>
+                  <div class="text-sm text-muted leading-relaxed">{subtitle}</div>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
