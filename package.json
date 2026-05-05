@@ -5,8 +5,10 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "pnpm run build && wrangler dev",
+    "astro": "astro",
+    "deploy": "pnpm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "pnpm": {
     "overrides": {
@@ -15,6 +17,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.7",
+    "@astrojs/cloudflare": "12",
     "@astrojs/sitemap": "^3.7.1",
     "@lucide/astro": "^1.8.0",
     "@tailwindcss/vite": "^4.2.1",
@@ -23,5 +26,8 @@
     "tailwind-animations": "^1.0.1",
     "tailwindcss": "^4.2.1",
     "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "wrangler": "^4.87.0"
   }
 }
