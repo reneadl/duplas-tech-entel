@@ -1,0 +1,11 @@
+services:
+  duplas-tech-entel:
+    image: ${IMAGE_NAME:-localhost:5555/duplas-tech-entel}:${IMAGE_TAG:-latest}
+    container_name: duplas-tech-entel
+    restart: unless-stopped
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

@@ -1,0 +1,12 @@
+node_modules
+dist
+.git
+.gitignore
+.dockerignore
+Dockerfile
+docker-compose.yml
+.gitlab-ci.yml
+README.md
+CLAUDE.md
+.claude
+.vscode

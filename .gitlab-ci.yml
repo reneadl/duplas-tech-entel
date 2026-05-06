@@ -1,0 +1,38 @@
+image: docker:25
+
+variables:
+  IMAGE_NAME: localhost:5555/duplas-tech-entel
+  IMAGE_TAG: $CI_COMMIT_SHORT_SHA
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  variables:
+    DOCKER_BUILDKIT: "1"
+    DOCKER_HOST: unix:///var/run/docker.sock
+  script:
+    - docker build
+        --no-cache
+        -t $IMAGE_NAME:$IMAGE_TAG
+        -t $IMAGE_NAME:latest
+        .
+    - docker push $IMAGE_NAME:$IMAGE_TAG
+    - docker push $IMAGE_NAME:latest
+  only:
+    - main
+
+deploy:
+  stage: deploy
+  script:
+    - mkdir -p /opt/duplas-tech-entel
+    - cp docker-compose.yml /opt/duplas-tech-entel/
+    - cd /opt/duplas-tech-entel
+    - IMAGE_NAME=$IMAGE_NAME IMAGE_TAG=$IMAGE_TAG docker compose up -d --force-recreate
+    - docker image prune -f
+  only:
+    - main
+  needs:
+    - build
