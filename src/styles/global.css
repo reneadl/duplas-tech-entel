@@ -3,8 +3,8 @@
 
 @theme {
   /* Paleta Entel + Desafío Latam — versión estándar */
-  --color-entel: #0033a0;          /* Azul corporativo Entel */
-  --color-entel-deep: #00205b;     /* Azul más oscuro */
+  --color-entel: #0033ff;          /* Azul Entel vibrante (entel.cl) */
+  --color-entel-deep: #001fa3;     /* Azul más oscuro para hovers */
   --color-orange: #ff3d00;         /* Naranja Entel (CTA) */
   --color-orange-hover: #d83000;   /* Hover */
   --color-ink: #1a2332;            /* Texto principal */

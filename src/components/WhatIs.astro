@@ -1,18 +1,33 @@
 ---
 const beneficios = [
-  { label: "100% gratuito", desc: "Financiado por el Fondo 55+ Entel" },
-  { label: "Enfoque en IA", desc: "ChatGPT, Gemini, Cursor, v0 y más" },
-  { label: "Duplas reales", desc: "Senior + Joven trabajando en equipo" },
-  { label: "Certificación oficial", desc: "Conjunta Entel + Desafío Latam" },
+  {
+    title: "100% gratuito",
+    desc: "Financiado por el Fondo 55+ Entel",
+    icon: "M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z M6 6h.008v.008H6V6z",
+  },
+  {
+    title: "Enfoque en IA",
+    desc: "ChatGPT, Gemini, Cursor, v0 y más",
+    icon: "M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z",
+  },
+  {
+    title: "Duplas reales",
+    desc: "Senior + Joven trabajando en equipo",
+    icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z",
+  },
+  {
+    title: "Certificación oficial",
+    desc: "Conjunta Entel + Desafío Latam",
+    icon: "M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0",
+  },
 ];
 ---
 
-<section id="que-es" class="bg-soft border-b border-border scroll-mt-16">
+<section id="que-es" class="bg-white border-b border-border scroll-mt-16">
   <div class="max-w-300 mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
-    <div class="max-w-3xl mb-10">
-      <div class="text-xs font-semibold uppercase tracking-wide text-orange mb-3">El programa</div>
-      <h2 class="font-bold text-2xl lg:text-3xl text-ink leading-tight mb-4">
-        Una iniciativa de Desafío Latam apoyada por Entel
+    <div class="max-w-3xl mb-12">
+      <h2 class="font-semibold text-2xl lg:text-3xl text-ink leading-tight mb-4">
+        Una iniciativa de <strong class="font-bold text-entel">Desafío Latam</strong> apoyada por <strong class="font-bold text-entel">Entel</strong>
       </h2>
       <p class="text-base text-muted leading-relaxed mb-3">
         Diseñada para unir la experiencia de profesionales Senior con la innovación de Jóvenes Talentos. A través del uso de la Inteligencia Artificial y metodologías ágiles, fortalecerás tu autonomía digital y tus oportunidades en el mercado laboral.
@@ -22,12 +37,17 @@ const beneficios = [
       </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
       {
-        beneficios.map(({ label, desc }) => (
-          <div class="bg-white border border-border rounded-md p-5">
-            <div class="font-semibold text-ink text-sm mb-1">{label}</div>
-            <div class="text-sm text-muted leading-relaxed">{desc}</div>
+        beneficios.map(({ title, desc, icon }) => (
+          <div class="flex items-center gap-5 bg-soft border border-border rounded-xl p-5">
+            <svg class="shrink-0 w-12 h-12 text-orange [filter:drop-shadow(0_0_8px_rgba(255,61,0,0.55))]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d={icon} />
+            </svg>
+            <div class="min-w-0">
+              <div class="font-semibold text-ink text-sm mb-1">{title}</div>
+              <div class="text-sm text-muted leading-relaxed">{desc}</div>
+            </div>
           </div>
         ))
       }

@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: "¿Dónde puedo hacer más consultas?",
-    a: "Escríbenos directamente a soporte@desafiolatam.com y te responderemos a la brevedad.",
+    a: "Escríbenos directamente a duplas_inter@desafiolatam.com y te responderemos a la brevedad.",
   },
 ];
 ---
@@ -31,12 +31,12 @@ const faqs = [
   <div class="max-w-300 mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
     <div class="max-w-3xl mb-10">
       <div class="text-xs font-semibold uppercase tracking-wide text-orange mb-3">Preguntas frecuentes</div>
-      <h2 class="font-bold text-2xl lg:text-3xl text-ink leading-tight">
-        Resolvemos tus dudas
+      <h2 class="font-semibold text-2xl lg:text-3xl text-ink leading-tight">
+        Resolvemos tus <strong class="font-bold text-entel">dudas</strong>
       </h2>
     </div>
 
-    <div class="max-w-3xl bg-white border border-border rounded-md divide-y divide-border">
+    <div class="max-w-3xl bg-white border border-border rounded-xl divide-y divide-border">
       {
         faqs.map(({ q, a }) => (
           <details class="group p-5">
@@ -53,7 +53,7 @@ const faqs = [
     </div>
 
     <div class="mt-8 text-sm text-muted">
-      ¿Tienes otra duda? Escríbenos a <a href="mailto:soporte@desafiolatam.com" class="text-entel font-semibold hover:underline">soporte@desafiolatam.com</a>
+      ¿Tienes otra duda? Escríbenos a <a href="mailto:duplas_inter@desafiolatam.com" class="text-entel font-semibold hover:underline">duplas_inter@desafiolatam.com</a>
     </div>
   </div>
 </section>

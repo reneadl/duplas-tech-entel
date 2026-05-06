@@ -9,25 +9,25 @@ const content = {
   default: {
     badge: "Alianza Entel + Desafío Latam · 2026",
     badgeColor: "text-entel bg-entel/8",
-    title: "Duplas Intergeneracionales Tech",
+    title: 'Duplas <strong class="font-bold text-entel">Intergeneracionales</strong> Tech',
     subtitle: 'Programa <strong class="text-ink">100% gratuito</strong> para potenciar tu empleabilidad y dominar la Inteligencia Artificial. Conecta con otras generaciones, financiado por el Fondo 55+ Entel.',
     ctaPrimary: "Postular ahora",
     ctaPrimaryHref: "#postulacion",
     stats: [
       { label: "Inicio postulaciones", val: "18 de mayo, 2026" },
-      { label: "Cupos Senior", val: "500 · 55 a 70 años" },
+      { label: "Cupos Senior", val: "750 · 55 a 70 años" },
       { label: "Cupos Jóvenes", val: "80 · 18 a 30 años" },
     ],
   },
   senior: {
     badge: "Profesional Senior · 55 a 70 años",
     badgeColor: "text-entel bg-entel/8",
-    title: "Tu experiencia + IA = nueva oportunidad",
+    title: 'Tu experiencia + <strong class="font-bold text-entel">IA</strong> = nueva oportunidad',
     subtitle: 'Programa <strong class="text-ink">100% gratuito</strong> para profesionales con experiencia que quieren actualizarse, dominar la IA y mejorar su posicionamiento profesional. Financiado por el Fondo 55+ Entel.',
     ctaPrimary: "Postular como Senior",
     ctaPrimaryHref: "#postulacion",
     stats: [
-      { label: "Cupos disponibles", val: "500 profesionales Senior" },
+      { label: "Cupos disponibles", val: "750 profesionales Senior" },
       { label: "Inicio postulaciones", val: "18 de mayo, 2026" },
       { label: "Modalidad Etapa 1", val: "100% online · 8 webinars" },
     ],
@@ -35,7 +35,7 @@ const content = {
   junior: {
     badge: "Joven Colaborador · 18 a 30 años",
     badgeColor: "text-orange bg-orange/10",
-    title: "Co-crea con un mentor senior y construye tu carrera",
+    title: 'Co-crea con un mentor senior y <strong class="font-bold text-orange">construye tu carrera</strong>',
     subtitle: 'Programa <strong class="text-ink">100% gratuito</strong> para jóvenes apasionados por la tecnología que quieren formar equipo con profesionales con experiencia, prototipar con IA y conectarse con +20 empresas. Financiado por el Fondo 55+ Entel.',
     ctaPrimary: "Postular como Joven",
     ctaPrimaryHref: "#postulacion",
@@ -58,9 +58,7 @@ const c = content[variant];
           {c.badge}
         </div>
 
-        <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl text-ink leading-tight mb-5">
-          {c.title}
-        </h1>
+        <h1 class="font-semibold text-3xl md:text-4xl lg:text-5xl text-ink leading-tight mb-5" set:html={c.title}></h1>
 
         <p class="text-base lg:text-lg text-muted leading-relaxed mb-8 max-w-2xl" set:html={c.subtitle}></p>
 

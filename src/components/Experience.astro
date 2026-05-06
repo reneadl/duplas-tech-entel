@@ -1,0 +1,63 @@
+---
+const stats = [
+  { num: "30.000", label: "Personas capacitadas", desc: "en programas de transformación profesional digital" },
+  { num: "90%", label: "Satisfacción", desc: "de estudiantes en nuestros programas" },
+  { num: "12", label: "Años de trayectoria", desc: "en formación de habilidades digitales" },
+];
+
+const logos = [
+  { src: "/logos/sence.png", alt: "SENCE" },
+  { src: "/logos/corfo.svg", alt: "CORFO" },
+  { src: "/logos/caja-los-andes.svg", alt: "Caja Los Andes" },
+  { src: "/logos/bid.svg", alt: "BID" },
+  { src: "/logos/globant.svg", alt: "Globant" },
+  { src: "/logos/accenture.svg", alt: "Accenture" },
+  { src: "/logos/banco-de-chile.svg", alt: "Banco de Chile" },
+  { src: "/logos/bhp.svg", alt: "BHP" },
+  { src: "/logos/sercotec.png", alt: "Sercotec" },
+  { src: "/logos/redhat.svg", alt: "Red Hat" },
+  { src: "/logos/cchc.png", alt: "CChC" },
+  { src: "/logos/fintechile.svg", alt: "FintechChile" },
+];
+
+---
+
+<section id="experiencia" class="bg-soft border-b border-border scroll-mt-16">
+  <div class="max-w-300 mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
+    <div class="max-w-3xl mb-10">
+      <div class="text-xs font-semibold uppercase tracking-wide text-orange mb-3">Experiencia</div>
+      <h2 class="font-semibold text-3xl lg:text-5xl text-ink leading-tight mb-4">
+        <strong class="font-bold text-entel">12 años</strong> formando talento digital
+      </h2>
+      <p class="text-base lg:text-lg text-muted leading-relaxed">
+        Hemos trabajado con grupos +55 en bootcamps de habilidades digitales, programas de alfabetización de Pymes y alianzas con municipalidades. Programas de base tecnológica con gran innovación.
+      </p>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      {stats.map(({ num, label, desc }) => (
+        <div class="bg-white border border-border rounded-2xl p-6">
+          <div class="font-bold text-4xl lg:text-5xl text-entel mb-2 leading-none">{num}</div>
+          <div class="font-semibold text-ink text-sm mb-1">{label}</div>
+          <div class="text-muted text-sm leading-relaxed">{desc}</div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Logos -->
+    <div class="bg-white border border-border rounded-2xl p-6 lg:p-10">
+      <div class="text-xs font-semibold uppercase tracking-wide text-muted mb-6 text-center">Han confiado en nosotros</div>
+      <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-6 lg:gap-10 items-center">
+        {logos.map(({ src, alt }) => (
+          <img
+            src={src}
+            alt={alt}
+            class="h-8 lg:h-10 w-auto max-w-[120px] mx-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+            loading="lazy"
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

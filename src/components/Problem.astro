@@ -1,0 +1,52 @@
+---
+const stats = [
+  { num: "50%", who: "de las personas", desc: "Tiene actitudes edadistas contra personas mayores", source: "OMS", color: "text-entel" },
+  { num: "17%", who: "Uso de IA", desc: "Adopción activa en adultos de 50 o más", source: "Pew Research Center", color: "text-entel" },
+  { num: "61%", who: "de adultos mayores", desc: "Ven la IA como amenaza de reemplazo laboral", source: "OCDE", color: "text-orange" },
+];
+---
+
+<section id="problema" class="bg-soft border-b border-border scroll-mt-16">
+  <div class="max-w-300 mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
+    <div class="max-w-3xl mb-10">
+      <h2 class="font-semibold text-3xl lg:text-5xl text-ink leading-tight mb-4">
+        El <strong class="font-bold">problema</strong>
+      </h2>
+      <p class="text-base lg:text-lg text-muted leading-relaxed">
+        El talento senior está siendo desplazado del mercado laboral mientras la IA acelera la brecha. Este programa nace para revertirlo.
+      </p>
+    </div>
+
+    <div class="bg-entel rounded-2xl p-6 lg:p-10 mb-12">
+      <div class="grid grid-cols-1 md:grid-cols-[auto_1fr_1fr] gap-6 lg:gap-10 items-start">
+        <div class="hidden md:flex w-14 h-14 rounded-full bg-white items-center justify-center shrink-0">
+          <span class="text-entel font-bold text-2xl leading-none">!</span>
+        </div>
+        <div class="md:border-r md:border-white/20 md:pr-8">
+          <h3 class="font-bold text-white text-lg mb-3">La paradoja de la experiencia</h3>
+          <p class="text-white/85 text-sm leading-relaxed">
+            El mercado laboral descarta a los profesionales senior por falta de actualización tecnológica, desperdiciando décadas de criterio, liderazgo y conocimiento de negocio vitales para las empresas.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-bold text-white text-lg mb-3">El costo de la inacción</h3>
+          <p class="text-white/85 text-sm leading-relaxed">
+            Sin una intervención dirigida, esta brecha se ampliará exponencialmente con el avance de la IA, condenando al talento senior a la irrelevancia laboral y al aislamiento social.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+      {stats.map(({ num, who, desc, source, color }) => (
+        <div class="border-l-2 border-border pl-5">
+          <div class={`font-bold text-5xl mb-2 leading-none ${color}`}>{num}</div>
+          <div class="font-semibold text-ink text-sm mb-1">{who}</div>
+          <div class="text-muted text-sm leading-relaxed">
+            {desc} <span class="text-muted/70">({source})</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
